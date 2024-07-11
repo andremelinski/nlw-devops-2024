@@ -1,1 +1,3 @@
 # nlw-journey-go
+
+.
