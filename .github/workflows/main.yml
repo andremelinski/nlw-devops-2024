@@ -5,7 +5,7 @@ on:
         branches:
             - main
 jobs:
-    build-andn-push:
+    build-and-push:
         name: 'Build and Push'
         runs-on: ubuntu-latest
         steps:
