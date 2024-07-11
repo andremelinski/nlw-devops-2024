@@ -1,1 +1,17 @@
+name: CI
 
+on:
+    push:
+        branches:
+            - main
+jobs:
+    build-andn-push:
+        name: 'Build and Push'
+        runs-on: ubuntu-latest
+        steps:
+            # pega o codigo e faz um checkout na branch
+            - name: Checkout
+              uses: actions/checkout@v4
+            # steps
+            - name: Build Docker Image
+              run: docker build -t melinski/nlw-journey-go_api:latest .
