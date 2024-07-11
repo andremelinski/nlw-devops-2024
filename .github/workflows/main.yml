@@ -13,5 +13,13 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
             # steps
+            - name: Generate SHA
+              id: generate_sha
+              # 7 primeiros caracteres do sha
+              # centraliza a saida dos dados: GITHUB_OUTPUT
+              run: |
+                  SHA=$(echo $GITHUB_SHA | head -c7)
+                  echo "sha=$SHA" >> $GITHUB_OUTPUT
+
             - name: Build Docker Image
-              run: docker build -t melinski/nlw-journey-go_api:latest .
+              run: docker build -t melinski/nlw-journey-go_api:${{steps.generate_sha.outputs.sha}} .
