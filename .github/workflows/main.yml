@@ -15,7 +15,7 @@ jobs:
 
             # uma vez que o docker nao tem o go instalado, ele pega uma imagem a partir da 1.22 para vc rodar testes e outras coisas que precisem do Go dentro da pipe
             - name: Setup Go
-              uses: action/setup-go@v5
+              uses: actions/setup-go@v5
               with:
                   go-version: '1.22.x'
 
