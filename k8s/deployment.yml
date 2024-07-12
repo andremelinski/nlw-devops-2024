@@ -1,9 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
     name: journey-deployment
     labels:
         app: journey
+
 spec:
     replicas: 10
     selector:
@@ -16,7 +18,7 @@ spec:
         spec:
             containers:
                 - name: api-journey
-                  image: melinski/nlw-journey-go_api:c9c2572
+                  image: melinski/nlw-journey-go_api:latest
                   env:
                       - name: JOURNEY_DATABASE_USER
                         valueFrom:
