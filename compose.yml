@@ -49,9 +49,9 @@ services:
             JOURNEY_DATABASE_NAME: ${JOURNEY_DATABASE_NAME}
         networks:
             - journey
-        depends_on:
-            - postgres
-            # - pgadmin
+        # depends_on:
+        #     - postgres
+        # - pgadmin
 
 volumes:
     # db:
