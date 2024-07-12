@@ -27,5 +27,15 @@ jobs:
                   username: ${{secrets.DOCKERHUB_USERNAME}}
                   password: ${{secrets.DOCKERHUB_TOKEN}}
 
-            - name: Build Docker Image
-              run: docker build -t melinski/nlw-journey-go_api:${{steps.generate_sha.outputs.sha}} .
+            - name: Build and Push
+              uses: docker/build-and-push-action@v6
+              with:
+                  context: .
+                  push: true
+                  tags: |
+                      melinski/nlw-journey-go_api:${{steps.generate_sha.outputs.sha}}
+                      melinski/nlw-journey-go_api:latest
+            # - name: Build Docker Image
+            #   run: docker build -t melinski/nlw-journey-go_api:${{steps.generate_sha.outputs.sha}} .
+            # - name: Push Image
+            #   run: docker push melinski/nlw-journey-go_api:${{steps.generate_sha.outputs.sha}}
